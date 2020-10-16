@@ -37,6 +37,9 @@ var userSchema=new mongoose.Schema({
         type: Array,
         default: []
     }
+},
+{
+    timestamps: true
 });
 userSchema.virtual("password").get(function(){
     return this._password;
