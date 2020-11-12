@@ -5,7 +5,8 @@ const expressjwt=require('express-jwt');
 
 
 exports.signout=(req,res)=>{
-    res.json({
+    res.clearCookie("token");
+    return res.json({
         message: "You are signed out"
     })
 };
