@@ -72,3 +72,8 @@ exports.signin= (req,res)=>{
         });
     });
 };
+
+exports.isSignedIn = expressjwt({
+    secret: process.env.SECRET,
+    userProperty: "auth"
+});
