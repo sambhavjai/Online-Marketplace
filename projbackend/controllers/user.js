@@ -1,6 +1,5 @@
 const User=require("../models/user");
 const Order=require("../models/order");
-const { reduceRight } = require("lodash");
 
 exports.getUserById=(req,res,next,id) => {
     User.findById(id).exec((err,user) => {

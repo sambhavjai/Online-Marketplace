@@ -7,6 +7,7 @@ const cookieParser=require('cookie-parser');
 const cors=require('cors');
 const authRoute=require('./routes/auth');
 const userRoute=require('./routes/user');
+const categoryRoute=require('./routes/category');
 const app=express();
 
 //DB connection
@@ -28,6 +29,7 @@ app.use(cors());
 //Routes
 app.use("/api",authRoute);
 app.use("/api",userRoute);
+app.use("/api",categoryRoute);
 
 //Port
 const port=process.env.PORT||8000;
