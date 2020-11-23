@@ -55,3 +55,18 @@ exports.updateCategory = (req,res) => {
         return res.json(category);
     });
 };
+
+exports.deleteCategory = (req,res) =>{
+    const category = req.category;
+    category.remove((err,category) => {
+        if(err || !category)
+        {
+            return res.status(400).json({
+                error: "Not able to delete the category"
+            });
+        }
+        return res.json({
+            message: `${category.name} category deleted`
+        });
+    });
+};
