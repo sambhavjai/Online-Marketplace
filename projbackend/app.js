@@ -8,6 +8,7 @@ const cors=require('cors');
 const authRoute=require('./routes/auth');
 const userRoute=require('./routes/user');
 const categoryRoute=require('./routes/category');
+const productRoute = require('./routes/product');
 const app=express();
 
 //DB connection
@@ -30,6 +31,7 @@ app.use(cors());
 app.use("/api",authRoute);
 app.use("/api",userRoute);
 app.use("/api",categoryRoute);
+app.use("/api",productRoute);
 
 //Port
 const port=process.env.PORT||8000;
