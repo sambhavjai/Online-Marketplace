@@ -20,6 +20,11 @@ const orderSchema=new mongoose.Schema({
     amount:{
         type: Number
     },
+    status:{
+        type: String,
+        default: "Recieved",
+        enum: ["Cancelled","Shipped","Processing","Recieved"]
+    },
     address:{
         type: String
     },

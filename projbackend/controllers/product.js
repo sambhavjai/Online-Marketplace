@@ -140,7 +140,7 @@ exports.getAllProducts = (req,res) => {
     });
 }
 
-exports.updateInventory = (req,res,next) => {
+exports.updateStock = (req,res,next) => {
     let operations = req.body.order.products.map(product => {
         return {
             updateOne: {
