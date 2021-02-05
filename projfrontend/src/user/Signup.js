@@ -22,15 +22,15 @@ const Signup = () => {
     const onSubmit = event => {
         event.preventDefault();
         setValues({...values,error: false});
-        signup({name,email,password})
-        .then(data => {
-            if(data.error)
-            setValues({...values,error:data.error,success: false})
-            else
+        signup({name,email,password}).then(data => {
+            if(data.error){
+            setValues({...values,error:data.error,success: false});
+            }
+            else {
             setValues({...values,name:"",email:"",password:"",error:"",success: true});
-        })
-        .catch(console.log("Error in signup"))
-    }
+            }
+        }).catch(error => {console.log("Error in signup")});
+    };
 
     const successMessage = () => {
         return (
