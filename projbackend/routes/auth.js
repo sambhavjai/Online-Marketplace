@@ -6,10 +6,10 @@ const {signout,signup,signin,isSignedIn}=require('../controllers/auth');
 router.get("/signout",signout);
 
 router.post("/signup",[
-    check("name").isLength({min: 3}).withMessage("Name should be of atleast 3 chars"),
-    check("email").isEmail().withMessage("Please provide a correct email"),
-    check("password").isLength({min: 3}).withMessage("Password should of atleast 3 length")
-],signup);
+    // check("name", "name should be at least 3 char").isLength({ min: 3 }),
+    // check("email", "email is required").isEmail(),
+    // check("password", "password should be at least 3 char").isLength({ min: 3 })
+  ],signup);
 
 router.post("/signin",[
     check("email").isEmail().withMessage("Email is required"),
