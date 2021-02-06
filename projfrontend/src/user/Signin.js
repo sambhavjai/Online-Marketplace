@@ -1,4 +1,4 @@
-import react,{useState} from 'react';
+import React,{useState} from 'react';
 import {Link,Redirect} from 'react-router-dom';
 import Base from '../core/Base';
 import {isAuthenticated,authenticate,signin} from '../auth/helper/index'
