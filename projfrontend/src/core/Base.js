@@ -14,8 +14,8 @@ const Base = ({title="My title",description="My description",className="bg-dark 
                     {children}
                 </div>
             </div>
-            <footer className="footer bg-dark mt-auto py-3">
-                <div className="container-fluid bg-success text-white text-center py-3">
+            <footer className="footer bg-dark mt-auto py-1">
+                <div className="container-fluid bg-success text-white text-center py-1">
                     <h4>If you have any queries, please feel free to reach out!</h4>
                     <button className="btn btn-warning btn-large">Contact Us</button>
                 </div>
