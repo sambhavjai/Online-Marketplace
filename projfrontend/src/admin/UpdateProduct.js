@@ -144,7 +144,7 @@ const UpdateProduct = ({match}) => {
     }
 
     return (
-        <Base title="Add product page" description="Welcome to product creation" className="container bg-info p-4">
+        <Base title="Update product page" description="Welcome to product update" className="container bg-info p-4">
             <div className="bg-dark text-white rounded row">
                 <div className="col-md-8 offset-md-2">
                     {loading && loadingMessage()}
