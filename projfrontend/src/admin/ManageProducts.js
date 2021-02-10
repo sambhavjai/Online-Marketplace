@@ -37,7 +37,7 @@ const ManageProducts = () => {
         <Base title="Manage Products here" description="Manage all your products here">
             <div className="row">
                 <div className="col-12">
-                    <h2 className="text-center text-white my-3">Total 3 Products:</h2>
+                    <h2 className="text-center text-white my-3">All Products:</h2>
                     {products && products.map((product,index) => {
                         return (
                             <div key={index} className="row text-center mb-2">
@@ -45,7 +45,7 @@ const ManageProducts = () => {
                                     <h3 className="text-white text-left">{product.name}</h3>
                                 </div>
                                 <div className="col-4">
-                                    <Link className="btn btn-success" to="/admin/product/update/productId">
+                                    <Link className="btn btn-success" to={`/admin/product/update/${product._id}`}>
                                         <span className="">Update</span>
                                     </Link>
                                 </div>
