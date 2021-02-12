@@ -3,6 +3,7 @@ import '../styles.css'
 import Base from './Base';
 import Card from './Card';
 import { loadCart } from './helper/CartHelper';
+import StripeCheckout from './StripeCheckout';
 
 const Cart = () =>
 {
@@ -32,7 +33,7 @@ const Cart = () =>
     const checkout = () => {
         return (
             <div>
-                <h1 className="text-white">checkout from here</h1>
+                <StripeCheckout products={products} setReload={setReload} />
             </div>
         )
     }
