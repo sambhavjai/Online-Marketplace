@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { isAuthenticated } from '../auth/helper';
 import {Link} from 'react-router-dom';
+import StripeCheckoutButton from 'react-stripe-checkout';
+import { API } from '../backend';
 
 const StripeCheckout = ({products, setReload = f => f, reload=undefined}) => {
 
@@ -21,9 +23,28 @@ const StripeCheckout = ({products, setReload = f => f, reload=undefined}) => {
         return amount;
     }
 
+    const makePayment = (token) => {
+        const body = {
+            token,
+            products
+        }
+        const headers = {
+            "Content-Type" : "application/json"
+        }
+        return fetch(`${API}/stripepayment`,{
+            method: "POST",
+            headers,
+            body: JSON.stringify(body)
+        }).then(response => {
+            console.log(response);
+        }).catch(error => console.log(error));
+    }
+
     const showStripeButton = () => {
         return isAuthenticated() ? (
-             <button className="btn btn-success">Pay With Stripe</button>
+            <StripeCheckoutButton stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY} token={makePayment} amount={getFinalAmount() * 100} name="Buy Tshirts" shippingAddress billingAddress>
+                <button className="btn btn-success">Pay With Stripe</button>
+             </StripeCheckoutButton>
         ) : (
             <Link to="/signin" className="btn btn-outline-warning">Please Signin</Link>
         )
