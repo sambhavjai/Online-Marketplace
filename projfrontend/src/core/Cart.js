@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../styles.css'
 import Base from './Base';
+import BraintreePayment from './BraintreePayment';
 import Card from './Card';
 import { loadCart } from './helper/CartHelper';
 import StripeCheckout from './StripeCheckout';
@@ -38,14 +39,21 @@ const Cart = () =>
         )
     }
 
+    const braintreecheckout = () => {
+        return (
+            <BraintreePayment products={products} setReload={setReload} />
+        )
+    }
+
     return(
         <Base title="Welcome to your cart" description="Checkout from here">
             <div className="row">
                 <div className="col-6">
-                    {loadItems()}
+                    {products.length > 0 ? loadItems() : <h3 className="text-white">No products in the cart</h3>}
                 </div>
                 <div className="col-6">
                     {checkout()}
+                    {braintreecheckout()}
                 </div>
             </div>
         </Base>

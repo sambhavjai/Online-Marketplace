@@ -56,7 +56,7 @@ exports.getUserOrders = (req,res) => {
 
 exports.pushOrderInPurchaseList = (req,res,next) => {
     let purchases=[];
-    req.body.order.products.foreach(product => {
+    req.body.order.products.forEach(product => {
         purchases.push({
             _id: product._id,
             name: product.name,
@@ -67,11 +67,11 @@ exports.pushOrderInPurchaseList = (req,res,next) => {
             transaction_id: req.body.order.transaction_id
         });
     });
-
+    console.log(purchases)
     User.findOneAndUpdate(
-        {_id:req.profile._id},
-        {$push: {purchases:purchases}},
-        {new: true}
+        {_id:req.profile._id,$push: {purchases:purchases}},
+        {useFindAndModify: false},
+        {new: true},
     ).exec((err,purchases) => {
         if(err || !purchases)
         {

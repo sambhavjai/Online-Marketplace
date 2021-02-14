@@ -1,6 +1,7 @@
 var mongoose=require('mongoose');
 var crypto=require('crypto');
 var uuidv1=require('uuid/v1');
+mongoose.set('useFindAndModify', false);
 
 var userSchema=new mongoose.Schema({
     name:{

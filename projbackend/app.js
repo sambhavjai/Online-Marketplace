@@ -11,6 +11,8 @@ const categoryRoute=require('./routes/category');
 const productRoute = require('./routes/product');
 const orderRoute = require('./routes/order');
 const stripeRoute = require('./routes/stripePayment');
+const braintreeRoute = require('./routes/braintreePayment');
+
 const app=express();
 
 //DB connection
@@ -36,6 +38,7 @@ app.use("/api",categoryRoute);
 app.use("/api",productRoute);
 app.use("/api",orderRoute);
 app.use("/api",stripeRoute);
+app.use("/api",braintreeRoute);
 
 //Port
 const port=process.env.PORT||8000;
